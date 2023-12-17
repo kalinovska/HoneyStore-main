@@ -1,0 +1,72 @@
+<mat-sidenav-container hasBackdrop="true" (backdropClick)="close('backdrop')">
+    <mat-sidenav style="width: 490px; height: 100%; padding: 0;" #sidenav (keydown.escape)="close('escape')"
+        disableClose mode="push" position="end">
+        <app-sidebar [activeTab]="activeSidenavTab" (sidebarClosed)="onSidebarClosed()"></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="bootstrap-wrapper">
+            <div class="container storebar-wrapper">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h1><strong>Honey Store</strong></h1>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="row clearfix">
+                            <div class="col-md-9">
+                                <mat-form-field class="float-left" appearance="outline">
+                                    <input matInput type="text" placeholder="Пошук..."
+                                        [(ngModel)]="textToSearch">
+                                    <button mat-button *ngIf="textToSearch" matSuffix mat-icon-button aria-label="Clear"
+                                        (click)="textToSearch=''">
+                                        <mat-icon>Закрити</mat-icon>
+                                    </button>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="float-right" mat-fab color="primary" (click)="search(textToSearch)">
+                                    <mat-icon>search</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 storebar-tools">
+                        <div class="tool-item">
+                            <button mat-button (click)="open(cartTab)" *ngIf="authSvc.currentUserValue">
+                                <mat-icon>shopping_cart</mat-icon>
+                                <span>Корзина</span>
+                            </button>
+                        </div>
+                        <div class="tool-item">
+                            <button mat-button (click)="open(wishTab)" *ngIf="authSvc.currentUserValue">
+                                <mat-icon>favorite_border</mat-icon>
+                                <span>Збережені</span>
+                            </button>
+                        </div>
+                        <div *ngIf="!authSvc.currentUserValue" class="tool-item">
+                            <button (click)="login()" mat-button>
+                                <mat-icon>person_outline</mat-icon>
+                                <span>
+                                    Вхід
+                                </span>
+                            </button>
+                        </div>
+                        <div *ngIf="authSvc.currentUserValue" class="tool-item">
+                            <button (click)="logout()" mat-button>
+                                <mat-icon>input</mat-icon>
+                                <span>
+                                    Вийти
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <app-navbar></app-navbar>
+            <router-outlet></router-outlet>
+            <app-footer></app-footer>
+
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

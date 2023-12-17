@@ -1,0 +1,19 @@
+/* .float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+.clearfix {
+    clear: both;
+} */
+.cart-item-content {
+    margin: 10px;
+}
+.action-items {
+    margin: 5px;
+}
+.mat-card {
+    margin: 10px;
+}
+

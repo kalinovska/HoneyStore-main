@@ -1,0 +1,42 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <mat-card class="comment-card">
+            <mat-card-header>
+                <mat-card-title>ВІДГУК</mat-card-title>
+              </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="commentForm" *ngIf="commentForm.value">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>Ваша оцінка?</p>
+                        </div>
+                        <div class="col-md-10">
+                            <!-- <star-rating [value]="0" checkedcolor="#f70" uncheckedcolor="#ddd" size="30px" readonly="false"
+                    (rate)="onRate($event.newValue)">
+                  </star-rating> -->
+                        </div>
+                    </div>
+                    <p>Ваш відгук *</p>
+                    <editor apiKey="wn6007iuriqy8tm2vooh0xzopbgz23wbngoo60qacqbxwwlx" formControlName="content" [init]="{
+                                plugins: [
+                                'lists link image paste help wordcount'
+                                ],
+                                toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+                                language: 'uk'
+                            }"></editor>
+                    <div class="row">
+                        
+                    </div>
+                </form>
+            </mat-card-content>            
+            <mat-card-actions>
+                <div class="btn-submit col-md-4">
+                    <button (click)="onSave()" mat-raised-button color="primary">
+                        <mat-icon>rate_review</mat-icon> Зберегти
+                    </button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+        
+    </div>
+</div>

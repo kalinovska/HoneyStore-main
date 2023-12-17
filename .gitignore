@@ -1,0 +1,79 @@
+# Prerequisites
+*.d
+*.vs
+bin
+obj
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/HoneyStoreUI/node_modules
+/HoneyStoreUI/npm-debug.log
+/HoneyStoreUI/yarn-error.log
+
+# IDEs and editors
+/HoneyStoreUI/.idea/
+/HoneyStoreUI/.project
+/HoneyStoreUI/.classpath
+/HoneyStoreUI/.c9/
+/HoneyStoreUI/*.launch
+/HoneyStoreUI/.settings/
+/HoneyStoreUI/*.sublime-workspace
+
+# Visual Studio Code
+/HoneyStoreUI/.vscode/*
+/HoneyStoreUI/!.vscode/settings.json
+/HoneyStoreUI/!.vscode/tasks.json
+/HoneyStoreUI/!.vscode/launch.json
+/HoneyStoreUI/!.vscode/extensions.json
+/HoneyStoreUI/.history/*
+
+# Miscellaneous
+/HoneyStoreUI/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+

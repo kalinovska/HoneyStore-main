@@ -1,0 +1,13 @@
+<mat-card class="card-size">
+    <mat-card-header>
+        <mat-card-title>КАТЕГОРІЇ ТОВАРІВ</mat-card-title>
+    </mat-card-header>
+    <mat-action-list>
+        <span *ngFor="let category of categories">
+            <span *ngIf="category.name">
+                <mat-divider></mat-divider>
+                <button mat-list-item (click)="emitCategory(category.id)">{{category.name}}</button>
+            </span>
+        </span>
+    </mat-action-list>
+</mat-card>

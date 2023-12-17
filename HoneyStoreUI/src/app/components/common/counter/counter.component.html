@@ -1,0 +1,36 @@
+<!-- <div class="bootstrap-wrapper">
+    <mat-card class="content-size bg-light">
+      <button (click)="decrease()" mat-icon-button>
+        <mat-icon>remove</mat-icon>
+      </button>
+      <mat-form-field>
+        <input disabled matInput [(ngModel)]="currentValue">
+      </mat-form-field>
+      <button (click)="increase()" mat-icon-button>
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-card>
+  </div>
+
+   -->
+<div class="bootstrap-wrapper">
+    <mat-card class="content-size bg-light">
+        <div class="row">
+            <div class="col-md-4">
+                <button (click)="decrease()" mat-icon-button>
+                    <mat-icon>remove</mat-icon>
+                </button>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field>
+                    <input disabled matInput [(ngModel)]="currentValue">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <button (click)="increase()" mat-icon-button>
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>     
+        </div>
+    </mat-card>
+</div>

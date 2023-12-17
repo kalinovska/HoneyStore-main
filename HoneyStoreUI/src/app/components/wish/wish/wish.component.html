@@ -1,0 +1,40 @@
+<div class="bootstrap-wrapper">
+    <div *ngFor="let wish of wishtSvc.wishListValue">
+      <div class="cart-item-content">
+        <mat-card>
+          <mat-card-content>
+            <div class="container">
+              <div class="row">
+                <div class="col-4">
+                  <img mat-card-md-image
+                    [src]="fileHelper.getImageSafeURL(wish.product.productPhoto.fileBytes, wish.product.productPhoto.fileName)"
+                    [alt]="wish.product?.name">
+                </div>
+                <div class="col-6">
+                  <mat-card-title>{{wish.product?.name}}</mat-card-title>
+                  <mat-card-subtitle>{{wish.product?.category?.name}}</mat-card-subtitle>
+                  <p>{{wish.quantity}} <strong>x</strong> {{wish.product?.price}} грн.</p>
+                </div>
+                <div class="col-2">
+                  <button mat-button color="warn" (click)="deleteWish(wish.productId)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="container">
+              <div class="row">
+                <div class="col-2 offset-10">
+                  <button mat-button (click)="showDetail(wish.productId)">
+                    <mat-icon>crop_free</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>

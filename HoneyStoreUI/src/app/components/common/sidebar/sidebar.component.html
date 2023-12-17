@@ -1,0 +1,8 @@
+<mat-tab-group dynamicHeight mat-align-tabs="center">
+    <mat-tab *ngIf="activeTab === cartTab" label="Корзина">
+        <app-cart (cartClosed)="onCartClosed()"></app-cart>
+    </mat-tab>
+    <mat-tab *ngIf="activeTab === wishTab" label="Збережені">
+        <app-wish></app-wish>
+    </mat-tab>
+</mat-tab-group>

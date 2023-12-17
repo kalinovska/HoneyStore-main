@@ -1,0 +1,106 @@
+<div class="bootstrap-wrapper">
+    <form [formGroup]="productForm" *ngIf="productForm.value">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="float-left" mat-dialog-title>{{dialogTitle}}</h2>
+                <button mat-icon-button mat-dialog-close color="warn" class="float-right">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-dialog-content>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Назва</mat-label>
+                                <input matInput placeholder="назва" formControlName="name">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Виробник</mat-label>
+                                <input matInput placeholder="виробник" formControlName="producerName">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field appearance="outline">
+                                <mat-select formControlName="category">
+                                  <mat-option>-- категорія --</mat-option>
+                                  <mat-option *ngFor="let category of categorySource" [value]="category.id">{{category.name}}
+                                  </mat-option>
+                                </mat-select>
+                                <mat-label>Категорія</mat-label>
+                              </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Ціна</mat-label>
+                                <input matInput placeholder="ціна" formControlName="price">
+                                <mat-icon matSuffix>money</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Вага</mat-label>
+                                <input matInput placeholder="вага" formControlName="weight">
+                                <mat-icon matSuffix>balance</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Кількість</mat-label>
+                                <input matInput placeholder="сума" formControlName="quantity">
+                                <mat-icon matSuffix>production_quantity_limits</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-checkbox formControlName="commentsEnabled"><mat-icon matSuffix>comment</mat-icon> Дозволити коментарі </mat-checkbox>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <mat-card>
+                        <div class="image-wrapper">
+                            <img mat-card-image [src]="imageURL" *ngIf="imageURL" style="width:100%;">
+                        </div>
+                        <mat-card-actions>
+                            <button mat-stroked-button color="primary" style="width:100%;" (click)="onFileUpload()">
+                                <mat-icon>add_photo_alternate</mat-icon>
+                            </button>
+                            <input type="file" id="fileUpload" name="fileUpload" accept="image/*"
+                                style="display:none;" />
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <editor apiKey="4jxe9qsut244v9zq7atk0sg7jsgnvpxe4pq5s0cvdpfu15tl" formControlName="description"
+                        [init]="{
+                            plugins: [
+                            'lists link image paste help wordcount'
+                            ],
+                            toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+                            language: 'uk'
+                        }"></editor>
+                </div>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button mat-raised-button color="accent" (click)="onSave()">Зберегти <mat-icon>save</mat-icon></button>
+        </mat-dialog-actions>
+    </form>
+</div>

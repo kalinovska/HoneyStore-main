@@ -1,0 +1,11 @@
+.navbar-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap:nowrap;
+    width: 75%;
+}
+
+.bg-light {
+    background: #4285f4;
+}

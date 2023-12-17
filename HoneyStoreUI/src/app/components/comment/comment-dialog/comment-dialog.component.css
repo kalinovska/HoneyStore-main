@@ -1,0 +1,13 @@
+mat-form-field {
+    width: 100%;
+}
+mat-form-field textarea {
+    height: 80px;
+}
+.btn-submit button {
+    height: 50px;
+    width: 180px;
+}
+.comment-card {
+    padding: 1%;
+}

@@ -1,0 +1,11 @@
+<h1 *ngIf="listProducts?.length===0">Товар відсутній...</h1>
+<div class="bootstrap-wrapper">
+    <div class="centered">
+      <div class="cards">
+        <div *ngFor="let product of listProducts" class="card">
+            <app-product-card [product]="product"></app-product-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  

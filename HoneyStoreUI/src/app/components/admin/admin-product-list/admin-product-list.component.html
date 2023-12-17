@@ -1,0 +1,66 @@
+<div class="bootstrap-wrapper">
+    <div class="header row">
+        <div class="col-8">
+            <h2>ПРОДУКЦІЯ</h2>
+        </div>
+        <div class="col-4">
+            <button mat-raised-button color="accent" (click)="openCreationDialog()">Додати товар</button>
+        </div>
+    </div>
+</div>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+        <!-- No Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Код. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Назва </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Ціна </th>
+            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="editOption">
+            <th mat-header-cell *matHeaderCellDef> Редагувати </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-flat-button color="accent" (click)="openEditDialog(element.id)">Редагувати</button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="deleteOption">
+            <th mat-header-cell *matHeaderCellDef> Видалити </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-flat-button color="warn" (click)="remove(element)">Видалити</button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="detailOption">
+            <th mat-header-cell *matHeaderCellDef> Деталі </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-flat-button color="primary" (click)="openDetail(element.id)">Відкрити</button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="commentingOption">
+            <th mat-header-cell *matHeaderCellDef> Коментування </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-slide-toggle [checked]="element.commentsEnabled" (change)="toggleCommenting($event, element)">
+                </mat-slide-toggle>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[12, 24, 36]" [pageSize]="pageSize" showFirstLastButtons></mat-paginator>
+</div>

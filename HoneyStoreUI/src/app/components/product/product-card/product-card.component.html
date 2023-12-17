@@ -1,0 +1,42 @@
+<div class="bootstrap-wrapper">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-subtitle>{{product.category?.name}}</mat-card-subtitle>
+      </mat-card-header>
+      <div class="image-wrapper">
+        <img mat-card-image [src]="imageURL" [alt]="product.name" *ngIf="imageURL">
+      </div>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <div class="product-price">
+          <p><strong>Ціна : </strong>{{product.price}}</p>
+        </div>
+        <div class="product-producer">
+            <p><strong>Вага : </strong>{{product.weight}}</p>
+        </div>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <div class="container">
+          <div class="row">
+            <div class="col-4">
+              <button mat-raised-button color="primary" (click)="addToCart(product.id, product.name)">
+                <mat-icon>add_shopping_cart</mat-icon>
+              </button>
+            </div>
+            <div class="col-4">
+              <button mat-button (click)="addToWish(product.id, product.name)">
+                <mat-icon>favorite_border</mat-icon>
+              </button>
+            </div>
+            <div class="col-4">
+              <button (click)="showDetail(product.id)" mat-button>
+                <mat-icon>crop_free</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>

@@ -1,0 +1,50 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid main-content">
+      <div class="row">
+        <div class="col-md-3">
+          <app-category-card (selectedCategory)="onCategorySelected($event)"></app-category-card>
+        </div>
+        <div class="col-md-9">
+          <div class="clearfix">
+            <div class="float-left">
+              <mat-form-field appearance="outline">
+                <mat-select (selectionChange)="changeSortOption($event.value)">
+                  <mat-option>-- Вибір --</mat-option>
+                  <mat-option value="priceAscendant">Зростання ціни</mat-option>
+                  <mat-option value="priceDescendant">Спадання ціни</mat-option>
+                  <mat-option value="nameAscendant">Назва від А до Я</mat-option>
+                  <mat-option value="nameDescendant">Назва від Я до А</mat-option>
+                </mat-select>
+                <mat-label>
+                  <mat-icon matSuffix>sort</mat-icon> Сортувати по
+                </mat-label>
+              </mat-form-field>
+            </div>
+            <div class="page-size float-right">
+              <mat-form-field appearance="outline">
+                <mat-select (selectionChange)="changeSizePage($event.value)">
+                  <mat-option value="12">12</mat-option>
+                  <mat-option value="24">24</mat-option>
+                  <mat-option value="36">36</mat-option>
+                </mat-select>
+                <mat-label>
+                  <mat-icon matSuffix>pages</mat-icon>
+                </mat-label>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-divider [inset]="false"></mat-divider>
+            </div>
+          </div>
+          <div *ngIf="products&&authSvc.currentUserValue?.roleName!=='User'">
+              <!-- <app-admin-product-list [(listproducts)]="products" [pageSize]="productPerPage"></app-admin-product-list> -->
+          </div>
+          <!-- <div *ngIf="products&&authSvc.currentUserValue?.roleName==='User'" > -->
+            <app-product-list [listProducts]="products"></app-product-list>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>

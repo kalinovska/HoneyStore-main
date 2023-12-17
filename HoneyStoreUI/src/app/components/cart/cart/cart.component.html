@@ -1,0 +1,54 @@
+<div class="bootstrap-wrapper">
+  <div *ngFor="let item of cartSvc.cartItemsValue">
+    <div class="cart-item-content">
+      <mat-card>
+        <mat-card-content>
+          <div class="container">
+            <div class="row">
+              <div class="col-4">
+                <img mat-card-md-image
+                  [src]="fileHelper.getImageSafeURL(item.product.productPhoto.fileBytes, item.product.productPhoto.fileName)"
+                  [alt]="item.product?.name">
+              </div>
+              <div class="col-6">
+                <mat-card-title>{{item.product?.name}}</mat-card-title>
+                <mat-card-subtitle>{{item.product.category?.name}}</mat-card-subtitle>
+                <p>{{item.quantity}} <strong>x</strong> {{item.product?.price}} грн.</p>
+              </div>
+              <div class="col-2">
+                <button mat-button color="warn" (click)="deleteItem(item.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="container">
+            <div class="row">
+              <div class="col-2 offset-10">
+                <button mat-button (click)="showDetail(item.productId)">
+                  <mat-icon>crop_free</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<mat-toolbar *ngIf="!hideToolbar" color="primary" style="position: fixed; bottom: 0;" >
+  <div class="bootstrap-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <button mat-stroked-button (click)="regirectToOrder()">Перейти до оформлення</button>
+        </div>
+        <div class="col-md-6">
+          <span>До сплати : <strong> {{cartSvc.totalSumValue}} грн. </strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

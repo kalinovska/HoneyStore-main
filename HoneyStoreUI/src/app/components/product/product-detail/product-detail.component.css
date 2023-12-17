@@ -1,0 +1,67 @@
+.relative {
+    position: relative;
+}
+
+.absolute-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.details-content {
+    margin: 10px 10px;
+}
+
+.rating {
+    margin: 10px;
+}
+
+.card-offer {
+    padding: 15px 20px;
+    min-height: 300px;
+    max-height: 100%;
+}
+
+.product-description
+.product-short {
+    margin: 15px;
+}
+
+.bk-add-to-card button,
+.adtn-actions button {
+    height: 60px;
+    width: 100%;
+}
+
+.separator {
+    margin: 20px 0px;
+}
+
+.tabs {
+    margin: 20px 0px;
+}
+
+.tab-content {
+    width: 100%; 
+    min-height: 500px;
+    height: 100%;;
+}
+
+.tab-title {
+    text-transform: uppercase;
+}
+
+.review-action {
+    margin: 20px;
+}
+
+.review-action button {
+    height: 50px;
+}
+
+img {
+    width: 100%;
+    height: 600px;
+    object-fit: contain;
+} 
